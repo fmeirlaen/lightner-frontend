@@ -31,6 +31,9 @@ import { PanelsComponent } from './dashboard/component/panels/panels.component';
 import { SettingsService } from './services/settings.service';
 import { WizardComponent } from './dashboard/component/wizard/wizard.component';
 
+import { AuthenticationService, UserService } from './_services/index';
+import { BaseRequestOptions } from '@angular/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,7 +70,12 @@ import { WizardComponent } from './dashboard/component/wizard/wizard.component';
     MdMenuModule,
     MdCheckboxModule
   ],
-  providers: [SettingsService],
+  providers: [
+    SettingsService,
+    AuthenticationService,
+    UserService,
+    BaseRequestOptions
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

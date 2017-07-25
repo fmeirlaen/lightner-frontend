@@ -16,29 +16,28 @@
            </div>
          </div>
          <p class="tip">Or Be Classical</p>
-         <div class="card-form">
-           <div class="form-row">
-             <i class="material-icons">face</i>
-             <md-input-container color="accent">
-               <input type="text" mdInput placeholder="First Name"/>
-             </md-input-container>
+         <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+           <div class="card-form">
+               <div class="form-row" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+                 <i class="material-icons">email</i>
+                 <md-input-container color="accent">
+                   <input type="text" mdInput name="username" placeholder="Username" [(ngModel)]="model.username" #username="ngModel" required/>
+                   <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
+                 </md-input-container>
+               </div>
+               <div class="form-row" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+                 <i class="material-icons">lock_outline</i>
+                 <md-input-container color="accent">
+                   <input type="password" mdInput name="password" placeholder="Password" [(ngModel)]="model.password" #password="ngModel" required />
+                   <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+                 </md-input-container>
+               </div>
            </div>
-           <div class="form-row">
-             <i class="material-icons">email</i>
-             <md-input-container color="accent">
-               <input type="text" mdInput placeholder="Email address"/>
-             </md-input-container>
+           <div class="card-footer">
+               <button md-button [disabled]="loading">LET'S GO</button>
            </div>
-           <div class="form-row">
-             <i class="material-icons">lock_outline</i>
-             <md-input-container color="accent">
-               <input type="password" mdInput placeholder="Password"/>
-             </md-input-container>
-           </div>
-         </div>
-         <div class="card-footer">
-           <button md-button (click)="loginBtn()">LET'S GO</button>
-         </div>
+           <div *ngIf="error" class="alert alert-danger">erreur: {{error}}</div>
+         </form>
        </div>
      </div>
    </div>
