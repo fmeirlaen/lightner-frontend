@@ -32,6 +32,7 @@ import { SettingsService } from './services/settings.service';
 import { WizardComponent } from './dashboard/component/wizard/wizard.component';
 
 import { AuthenticationService, UserService } from './_services/index';
+import { DocComponent } from './dashboard/doc/doc.component';
 import { BaseRequestOptions } from '@angular/http';
 
 @NgModule({
@@ -56,7 +57,8 @@ import { BaseRequestOptions } from '@angular/http';
     SettingsComponent,
     PriceTableComponent,
     PanelsComponent,
-    WizardComponent
+    WizardComponent,
+    DocComponent
   ],
   imports: [
     BrowserModule,
