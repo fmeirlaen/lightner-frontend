@@ -1,59 +1,89 @@
 <div class="container">
-  <app-navbar title="Table List"></app-navbar>
+  <app-navbar title="Liste des documents"></app-navbar>
   <div class="row">
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <i class="material-icons">assignment</i>
+          <i class="material-icons">check circle</i>
         </div>
         <div class="card-content">
-          <h4 class="card-title">Simple Table</h4>
+          <h4 class="card-title">Liste</h4>
           <div class="table-responsive">
-            <table class="table">
-              <thead class="text-primary">
+            <table class="table table-striped">
+              <thead>
               <tr>
-                <th>First Name</th>
-                <th>Country</th>
-                <th>City</th>
-                <th>Salary</th>
+                <th>Document</th>
+                <th>Référence</th>
+                <th>Entreprise</th>
+                <th>Description</th>
+                <th>Quantité</th>
+                <th class="text-primary">Prix unitaire</th>
+                <th class="text-info">Total</th>
+                <th>Payé</th>
+                <th>Editer</th>
+                <th>Suppr.</th>
               </tr>
               </thead>
               <tbody>
               <tr>
-                <td>Dakota Rice</td>
-                <td>Niger</td>
-                <td>Oud-Turnhout</td>
-                <td class="text-primary">$36,738</td>
+                <td>FA</td>
+                <td>F159874</td>
+                <td>Technofuturtic</td>
+                <td>Formation Angular 4</td>
+                <td>3</td>
+                <td class="text-primary">350,00 €</td>
+                <td class="text-info">1050,00 €</td>
+                <td>Non</td>
+                <td><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></td>
+                <td><i class="fa fa-trash fa-2x" aria-hidden="true"></i></td>
               </tr>
               <tr>
-                <td>Minerva Hooper</td>
-                <td>Curaçao</td>
-                <td>Sinaai-Waas</td>
-                <td class="text-primary">$23,789</td>
+                <td>FV</td>
+                <td>FV003</td>
+                <td>Tesla Inc.</td>
+                <td>Sécurisation de l'ordinateur de bord</td>
+                <td>500</td>
+                <td class="text-primary">100,00 €</td>
+                <td class="text-info">50 000,00 €</td>
+                <td>Non</td>
+                <td><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></td>
+                <td><i class="fa fa-trash fa-2x" aria-hidden="true"></i></td>
               </tr>
               <tr>
-                <td>Sage Rodriguez</td>
-                <td>Netherlands</td>
-                <td>Baileux</td>
-                <td class="text-primary">$56,142</td>
+                <td>FA</td>
+                <td>F45003</td>
+                <td>Cognitic</td>
+                <td>Développement platforme web</td>
+                <td>40</td>
+                <td class="text-primary">100,00 €</td>
+                <td class="text-info">4 000,00 €</td>
+                <td>Oui</td>
+                <td><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></td>
+                <td><i class="fa fa-trash fa-2x" aria-hidden="true"></i></td>
               </tr>
               <tr>
-                <td>Philip Chaney</td>
-                <td>Korea, South</td>
-                <td>Overland Park</td>
-                <td class="text-primary">$38,735</td>
+                <td>NCA</td>
+                <td>NCA003</td>
+                <td>Lightner</td>
+                <td>Logiciel gestion facturation</td>
+                <td>1</td>
+                <td class="text-primary">1 000,00 €</td>
+                <td class="text-info">1 000,00 €</td>
+                <td>Non</td>
+                <td><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></td>
+                <td><i class="fa fa-trash fa-2x" aria-hidden="true"></i></td>
               </tr>
-              <tr>
-                <td>Doris Greene</td>
-                <td>Malawi</td>
-                <td>Feldkirchen in Kärnten</td>
-                <td class="text-primary">$63,542</td>
-              </tr>
-              <tr>
-                <td>Mason Porter</td>
-                <td>Chile</td>
-                <td>Gloucester</td>
-                <td class="text-primary">$78,615</td>
+              <tr *ngFor="let doc of docs">
+                <td>{{doc.stamptab_header_doc}} - {{doc.doc_type}}</td>
+                <td>{{doc.doc_reference}}</td>
+                <td>{{doc.contact_name}}</td>
+                <td><tr *ngFor="let line of doc.lines">{{line.line_description}}</tr></td>
+                <td><tr *ngFor="let line of doc.lines">{{line.line_qtt}}</tr></td>
+                <td class="text-primary"><tr *ngFor="let line of doc.lines">{{line.line_price_unit | currency:'EUR':true}}</tr></td>
+                <td class="text-info"><tr *ngFor="let line of doc.lines">{{ line.line_qtt * line.line_price_unit | currency:'EUR':true}}</tr></td>
+                <td>{{doc.doc_paid}}</td>
+                <td><i class="fa fa-pencil-square-o fa-2x" (click)="openAlert('basic')" aria-hidden="true"></i></td>
+                <td><i class="fa fa-trash fa-2x" (click)="openAlert('cancel')" aria-hidden="true"></i></td>
               </tr>
               </tbody>
             </table>

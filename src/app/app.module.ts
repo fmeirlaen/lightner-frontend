@@ -31,7 +31,7 @@ import { PanelsComponent } from './dashboard/component/panels/panels.component';
 import { SettingsService } from './services/settings.service';
 import { WizardComponent } from './dashboard/component/wizard/wizard.component';
 
-import { AuthenticationService, UserService } from './_services/index';
+import { AuthenticationService, UserService, TokenService } from './_services/index';
 import { DocComponent } from './dashboard/doc/doc.component';
 import { BaseRequestOptions } from '@angular/http';
 
@@ -76,6 +76,7 @@ import { BaseRequestOptions } from '@angular/http';
     SettingsService,
     AuthenticationService,
     UserService,
+    TokenService,
     BaseRequestOptions
   ],
   bootstrap: [AppComponent]
