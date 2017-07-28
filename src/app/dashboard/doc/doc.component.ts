@@ -10,10 +10,10 @@ declare const swal: any;
 })
 
 export class DocComponent  {
-  private docs = {};
+  private docs = [];
   constructor(private tokenservice: TokenService) {
     tokenservice.getJson('api/docs', null, 'GET').subscribe(data => {
-      // console.log(data[0].contact_name);
+      console.log(data);
       // console.log(data[0].doc_type);
       this.docs = data;
     });
