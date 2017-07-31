@@ -1,3 +1,125 @@
-<p>
-  createdoc works!
-</p>
+<div class="container">
+  <app-navbar title="Ajouter un document"></app-navbar>
+  <div class="row" style="margin-top: 30px">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i>
+        </div>
+        <div class="card-content">
+          <h4 class="card-title">Ajouter un document -
+            <small class="category">Compléter le formulaire</small>
+          </h4>
+          <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+            <div class="row">
+              <div class="col-md-3">
+
+                <md-select placeholder="Type de document" [(ngModel)]="selectedValue" name="doc_type">
+                    <md-option *ngFor="let type of _types" [value]="type.value">
+                      {{ type.viewValue }}
+                    </md-option>
+
+                  </md-select>
+
+              </div>
+              <div class="col-md-6">
+                <md-input-container color="accent">
+                  <input mdInput type="text" placeholder="Nom du contact" [(ngModel)]="doc_contact" value="Ci" name="doc_contact">
+                </md-input-container>
+              </div>
+              <div class="col-md-3">
+                <md-input-container color="accent">
+                  <input mdInput type="date" placeholder="Date du document" [(ngModel)]="doc_date" value="Clia" name="doc_date">
+                </md-input-container>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <md-input-container color="accent">
+                  <input mdInput type="text" placeholder="Addresse" [(ngModel)]="contact_address" name="contact_address">
+                </md-input-container>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <md-input-container color="accent">
+                  <input mdInput type="text" placeholder="Code postale" [(ngModel)]="contact_codpost" name="contact_codpost">
+                </md-input-container>
+              </div>
+              <div class="col-md-4">
+                <md-input-container color="accent">
+                  <input mdInput type="text" placeholder="Pays" [(ngModel)]="contact_country" name="contact_pays">
+                </md-input-container>
+              </div>
+              <div class="col-md-4">
+                <md-input-container color="accent">
+                  <input mdInput type="text" placeholder="Référence" [(ngModel)]="doc_reference" name="doc_reference">
+                </md-input-container>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label class="textarea-label">Eléments</label>
+                <md-input-container color="accent">
+                  <input mdInput type="text" placeholder="Description" [(ngModel)]="line_description" name="line_description">
+                </md-input-container>
+              </div>
+              <div class="col-md-2">
+                <label class="textarea-label">Quantité</label>
+                <md-input-container color="accent">
+                  <input mdInput type="number" placeholder="Quantité" line_description>
+                </md-input-container>
+              </div>
+              <div class="col-md-2">
+                <label class="textarea-label">Prix à l'unité</label>
+                <md-input-container color="accent">
+                  <input mdInput type="number" placeholder="prix">
+                </md-input-container>
+              </div>
+              <div class="col-md-2">
+                <label class="textarea-label">Ajouter un élément</label><br />
+                <input type="button" (click)="addRow()" value="+" class="btn btn-primary"></div>
+              </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label class="textarea-label">Eléments</label>
+                <md-input-container color="accent">
+                  <input mdInput type="text" placeholder="Description">
+                </md-input-container>
+              </div>
+              <div class="col-md-2">
+                <label class="textarea-label">Quantité</label>
+                <md-input-container color="accent">
+                  <input mdInput type="number" placeholder="Quantité">
+                </md-input-container>
+              </div>
+              <div class="col-md-2">
+                <label class="textarea-label">Prix à l'unité</label>
+                <md-input-container color="accent">
+                  <input mdInput type="number" placeholder="prix">
+                </md-input-container>
+              </div>
+              <div class="col-md-2">
+                <label class="textarea-label">Ajouter un élément</label><br />
+                <input type="button" (click)="addRow()" value="+" class="btn btn-primary"></div>
+            </div>
+            <div class="row action-btn">
+              <button md-raised-button type="submit" class="btn btn-rose">Ajouter document</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card right-profile">
+        <div class="profile">
+          <img src="../../../assets/img/checklist.png" alt="profile"/>
+        </div>
+        <h6>TIPS</h6>
+        <h4>{{ firstName }} {{ lastName }}</h4>
+        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+        <button md-raised-button class="btn btn-rose btn-round"><i class="fa fa-thumbs-o-up fa-3x" aria-hidden="true"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
