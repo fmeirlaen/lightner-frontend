@@ -19,6 +19,9 @@ export class TokenService {
     if (http_verb === 'GET') {
       return this._http.get(`${this.BASE_URL}${url}`, options).map(x => x.json());
     }
+    if (http_verb === 'POST') {
+      return this._http.post(`${this.BASE_URL}${url}`, options).map(x => x.json());
+    }
   }
 }
 

@@ -1,6 +1,7 @@
 export const ROUTES = [
     { path: '/dashboard', title: 'Dashboard', icon: 'dashboard', children: null },
     { path: 'doc', title: 'Documents', icon: 'description', children: null },
+    { path: 'createdoc', title: 'Ajouter', icon: 'note add', children: null },
     { path: 'profile', title: 'User Profile', icon: 'person', children: null },
     { path: 'table', title: 'Table List', icon: 'content_paste', children: null },
     { path: '#component', id: 'component', title: 'Component', icon: 'apps', children: [

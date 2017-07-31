@@ -34,6 +34,7 @@ import { WizardComponent } from './dashboard/component/wizard/wizard.component';
 import { AuthenticationService, UserService, TokenService } from './_services/index';
 import { DocComponent } from './dashboard/doc/doc.component';
 import { BaseRequestOptions } from '@angular/http';
+import { CreateDocComponent } from './dashboard/createdoc/createdoc.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { BaseRequestOptions } from '@angular/http';
     PriceTableComponent,
     PanelsComponent,
     WizardComponent,
-    DocComponent
+    DocComponent,
+    CreateDocComponent
   ],
   imports: [
     BrowserModule,

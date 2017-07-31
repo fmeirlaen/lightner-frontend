@@ -4,6 +4,7 @@
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './dashboard/home/home.component';
 import { DocComponent } from './dashboard/doc/doc.component';
+import { CreateDocComponent } from './dashboard/createdoc/createdoc.component';
 import { ProfileComponent } from './dashboard/profile/profile.component';
 import { TableComponent } from './dashboard/table/table.component';
 import { NotificationComponent } from './dashboard/notification/notification.component';
@@ -26,6 +27,7 @@ const routes: Routes = [
     {path: '', component: HomeComponent},
     {path: 'profile', component: ProfileComponent},
     {path: 'doc', component: DocComponent},
+    {path: 'createdoc', component: CreateDocComponent},
     {path: 'table', component: TableComponent},
     {path: 'notification', component: NotificationComponent},
     {path: 'alert', component: SweetAlertComponent},
