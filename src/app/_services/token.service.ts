@@ -15,12 +15,13 @@ export class TokenService {
     const token = JSON.parse(localStorage.getItem('currentUser'))['token'];
     headers.append('Authorization', 'Bearer ' + token);
     const options = new RequestOptions({ headers: headers});
-    console.log(JSON.stringify(fields));
+    console.log(options)
+    // console.log(JSON.stringify(fields));
     if (http_verb === 'GET') {
       return this._http.get(`${this.BASE_URL}${url}`, options).map(x => x.json());
     }
     if (http_verb === 'POST') {
-      return this._http.post(`${this.BASE_URL}${url}`, options).map(x => x.json());
+      return this._http.post(`${this.BASE_URL}${url}`, fields, options).map(x => x.json());
     }
   }
 }
